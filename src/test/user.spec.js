@@ -116,7 +116,7 @@ describe("Testando rota GET /users/profile", () => {
     expect(response.body).not.toHaveProperty("password");
   });
 
-  it("Testando listagem do perfil de usuário", async () => {
+  it("Testando listagem do perfil de usuário sem Autorização", async () => {
     const response = await request(app).get("/users/profile");
 
     expect(response.status).toBe(401);
