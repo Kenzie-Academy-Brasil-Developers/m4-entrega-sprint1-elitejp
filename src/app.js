@@ -10,3 +10,5 @@ app.use("/login", sessionRoutes);
 app.listen(3000, () => {
   console.log("ihuu ");
 });
+
+export default app;

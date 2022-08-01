@@ -8,6 +8,10 @@ const createUserService = async (userData) => {
   const hashedPassword = await hash(userData.password, 10);
   user.password = hashedPassword;
 
+  const currentData = new Date();
+  user.createdOn = currentData;
+  user.updatedOn = currentData;
+
   user.uuid = uuidv4();
 
   users.push(user);
