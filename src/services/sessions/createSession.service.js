@@ -4,7 +4,7 @@ import { compare } from "bcrypt";
 import "dotenv/config";
 
 const createSessionService = async ({ email, password }) => {
-  const user = users.find((user) => user.email === email);
+  const user = await users.find((user) => user.email === email);
 
   if (!user) {
     throw new Error("Email ou senha incorreta");
@@ -26,7 +26,6 @@ const createSessionService = async ({ email, password }) => {
       subject: user.uuid,
     }
   );
-
   return token;
 };
 

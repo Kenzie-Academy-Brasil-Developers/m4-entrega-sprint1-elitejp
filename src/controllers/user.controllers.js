@@ -22,17 +22,17 @@ const listUserController = (req, res) => {
 
 const userProfileController = (req, res) => {
   const user = userProfileService(req.userEmail);
+  const { name, email, createdOn, updatedOn, uuid, isAdm } = user;
 
-  return res.json(user);
+  return res.json({ name, email, createdOn, updatedOn, uuid, isAdm });
 };
 
 const updateUserController = (req, res) => {
   const { uuid } = req.params;
   const user = updateUserService(uuid, req.body);
+  const { password, ...userRest } = user;
 
-  delete user.password;
-
-  return res.json(user);
+  return res.json(userRest);
 };
 
 const deleteUserController = (req, res) => {
