@@ -90,6 +90,7 @@ describe("Testando rota GET /users", () => {
     await request(app).post("/users").send(userNotAdm);
     const login = await request(app).post("/login").send(loginNotAdm);
     const { token } = login.body;
+
     const response = await request(app)
       .get("/users")
       .set("Authorization", `Bearer ${token}`);
@@ -103,6 +104,7 @@ describe("Testando rota GET /users/profile", () => {
   it("Testando listagem do perfil de usuário", async () => {
     const login = await request(app).post("/login").send(loginNotAdm);
     const { token } = login.body;
+
     const response = await request(app)
       .get("/users/profile")
       .set("Authorization", `Bearer ${token}`);
@@ -138,6 +140,7 @@ describe("Testando rota PATCH /users/<uuid>", () => {
   it("Testando atualização sem token", async () => {
     const login = await request(app).post("/login").send(loginNotAdm);
     const { token } = login.body;
+
     const user = await request(app)
       .get("/users/profile")
       .set("Authorization", `Bearer ${token}`);

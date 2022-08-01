@@ -1,7 +1,7 @@
 import users from "../database";
 
 const canEdit = (req, res, next) => {
-  const { userId } = req.userId;
+  const userId = req.userId;
   const { uuid } = req.params;
 
   const user = users.find((user) => user.uuid === userId);

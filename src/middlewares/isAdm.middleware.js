@@ -1,7 +1,7 @@
 import users from "../database";
 
 const isAdm = (req, res, next) => {
-  const { userId } = req.userId;
+  const userId = req.userId;
 
   const user = users.find((user) => user.uuid === userId);
 

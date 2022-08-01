@@ -5,7 +5,7 @@ const emailExists = (req, res, next) => {
   const emailExists = users.find((user) => user.email === email);
 
   if (emailExists) {
-    return response.status(400).json({
+    return res.status(400).json({
       message: "Email ja existente",
     });
   }
